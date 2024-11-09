@@ -1,8 +1,11 @@
-package raisetech.management.RaiseTechManagement;
+package raisetech.management.RaiseTechManagement.data;
 
 import lombok.Data;
 
 
+/**
+ * 学生情報のデータ型
+ */
 @Data
 public class Student {
 
