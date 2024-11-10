@@ -38,4 +38,22 @@ public interface StudentRepository {
       @Result(property = "course_end_at", column = "course_end_at")
   })
   List<StudentCourse> searchCourse();
+
+  /**
+   * 学生とコースの関連情報を検索する
+   *
+   * @return 学生とコースの関連情報
+   */
+  @Select(
+      "SELECT s.id as student_id, s.name as student_name, c.course_name, c.course_start_at, c.course_end_at "
+          +
+          "FROM students s " +
+          "JOIN students_courses c ON s.id = c.student_id")
+  @Results({
+      @Result(property = "student_id", column = "student_id"),
+      @Result(property = "course_name", column = "course_name"),
+      @Result(property = "course_start_at", column = "course_start_at"),
+      @Result(property = "course_end_at", column = "course_end_at")
+  })
+  List<StudentCourse> searchStudentCourseRelation();
 }

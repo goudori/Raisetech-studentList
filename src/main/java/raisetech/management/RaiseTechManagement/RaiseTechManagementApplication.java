@@ -15,12 +15,9 @@ import raisetech.management.RaiseTechManagement.repository.StudentRepository;
 public class RaiseTechManagementApplication {
 
 
-
   public static void main(String[] args) {
     SpringApplication.run(RaiseTechManagementApplication.class, args);
   }
-
-
 
 
 }

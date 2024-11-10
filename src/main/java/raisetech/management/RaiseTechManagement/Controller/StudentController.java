@@ -19,6 +19,8 @@ public class StudentController {
   }
 
   /**
+   * 全学生を検索する
+   *
    * @return 学生リスト
    */
   @GetMapping("/studentList")
@@ -27,10 +29,42 @@ public class StudentController {
   }
 
   /**
+   * 全てのコースを検索する
+   *
    * @return 学生が受講しているコースリスト
    */
   @GetMapping("/studentsCourseList")
   public List<StudentCourse> getStudentCourseList() {
     return service.searchStudentCourseList();
+  }
+
+  /**
+   * 30歳の学生を検索する
+   *
+   * @return 30歳の学生リスト
+   */
+  @GetMapping("/studentList/age30")
+  public List<Student> getStudentListByAge() {
+    return service.searchStudentListByAge();
+  }
+
+  /**
+   * Javaコースを検索する
+   *
+   * @return Javaコースリスト
+   */
+  @GetMapping("/studentsCourseList/java")
+  public List<StudentCourse> getStudentCourseListByJavaCourse() {
+    return service.searchStudentCourseListBYJavaCourse();
+  }
+
+  /**
+   * 学生とコースの関連情報を検索する
+   *
+   * @return 学生とコースの関連情報
+   */
+  @GetMapping("/studentCourseRelations")
+  public List<StudentCourse> getStudentCourseRelations() {
+    return service.searchStudentCourseRelation();
   }
 }
