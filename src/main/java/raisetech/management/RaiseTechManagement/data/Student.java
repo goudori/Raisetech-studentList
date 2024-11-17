@@ -18,6 +18,8 @@ public class Student {
   private String area;
   private int age;
   private String sex;
+  private String remark; // 備考(追加情報)
+  private boolean deleted;// 削除フラグ(削除されているかの確認)
 
 
 }

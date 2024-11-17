@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import raisetech.management.RaiseTechManagement.data.Student;
 import raisetech.management.RaiseTechManagement.data.StudentCourse;
 import raisetech.management.RaiseTechManagement.repository.StudentRepository;
@@ -42,6 +43,7 @@ public class StudentService {
 
   /**
    * Javaコースを検索する
+   *
    * @return Javaコースリスト
    */
   public List<StudentCourse> searchStudentCourseListBYJavaCourse() {
@@ -58,5 +60,26 @@ public class StudentService {
   public List<StudentCourse> searchStudentCourseRelation() {
     return repository.searchStudentCourseRelation();
   }
+
+
+  /**
+   * remark を更新する
+   */
+  @Transactional
+  public void updateStudentRemark() {
+    repository.updateRemark(1, "優秀な学生");
+    repository.updateRemark(2, "出席率が低い");
+    repository.updateRemark(3, "成績が向上している");
+    repository.updateRemark(4, "特になし");
+  }
+
+  /**
+   * 学生を削除する
+   */
+  public void updateDeleted() {
+    repository.updateDeleted(4, true);
+  }
+
+
 
 }
